@@ -19,7 +19,8 @@ int _printf(const char *format, ...)
 		 {'%', handle_percent,},
 		 {'d', handle_di},
 		 {'i', handle_di},
-		 {'b', handle_binary}
+		 {'b', handle_binary},
+		 {'o', handle_octal}
 	};
 	if (ptr == NULL)
 		return (-1);
