@@ -3,6 +3,7 @@
 
 #include <stdarg.h>
 #include <unistd.h>
+#include <stdlib.h>
 
 /**
  * struct handler - A new type defining a conversion handler struct
@@ -22,7 +23,7 @@ int _printf(const char *format, ...);
 
 unsigned int handle_char(va_list arg);
 unsigned int handle_string(va_list arg);
-unsigned int handle_percent(void);
+unsigned int handle_percent(va_list arg);
 unsigned int handle_di(va_list arg);
 
 #endif
