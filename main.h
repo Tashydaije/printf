@@ -26,4 +26,5 @@ unsigned int handle_string(va_list arg);
 unsigned int handle_percent(va_list arg);
 unsigned int handle_di(va_list arg);
 unsigned int handle_binary(va_list arg);
+unsigned int handle_octal(va_list arg);
 #endif
