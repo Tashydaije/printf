@@ -60,6 +60,8 @@ int _printf(const char *format, ...)
 				write(1, "%", 1);
 				printed_chars++;
 			}
+			if (*ptr == '\0')
+				break;
 		}
 		ptr++;
 	}
