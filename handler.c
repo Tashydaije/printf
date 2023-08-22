@@ -45,12 +45,15 @@ unsigned int handle_string(va_list arg)
  * Return: 1
  */
 
-unsigned int handle_percent()
+unsigned int handle_percent(va_list arg)
 {
-	char c = '%';
+	(void)arg;
+	{
+		char c = '%';
 
-	write(1, &c, 1);
-	return (1);
+		write(1, &c, 1);
+		return (1);
+	}
 }
 
 /**
@@ -66,7 +69,9 @@ unsigned int handle_di(va_list arg)
 
 	int num_copy = num;
 	int temp;
-
+	int num_digits = 1;
+	int i;
+	char *digits;
 	unsigned int len = 0;
 
 	if (num_copy < 0)
@@ -75,9 +80,7 @@ unsigned int handle_di(va_list arg)
 		len++;
 		num_copy = -num_copy;
 	}
-
 	temp = num_copy;
-	int num_digits = 1;
 
 	while (temp >= 10)
 	{
@@ -85,8 +88,13 @@ unsigned int handle_di(va_list arg)
 		num_digits++;
 	}
 
-	char digits[12];
-	int i;
+	digits = malloc(num_digits * sizeof(char));
+
+	if (!digits)
+	{
+		write(1, "Memory allocation failed\n", 24);
+		return (1);
+	}
 
 	for (i = num_digits - 1; i >= 0; i--)
 	{
@@ -95,6 +103,6 @@ unsigned int handle_di(va_list arg)
 	}
 	write(1, digits, num_digits);
 	len += num_digits;
-
+	free(digits);
 	return (len);
 }
