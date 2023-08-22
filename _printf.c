@@ -20,6 +20,8 @@ int _printf(const char *format, ...)
 		 {'d', handle_di},
 		 {'i', handle_di}
 	};
+	if (ptr == NULL)
+		return (-1);
 
 	va_start(args, format);
 
@@ -41,7 +43,8 @@ int _printf(const char *format, ...)
 				printed_chars++;
 			} else if (*ptr)
 			{
-				long unsigned int i;
+				unsigned long int i;
+
 				for (i = 0; i < sizeof(handlers) / sizeof(handlers[0]); i++)
 				{
 					if (*ptr == handlers[i].specifier)
