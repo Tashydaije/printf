@@ -37,11 +37,7 @@ int _printf(const char *format, ...)
 		{
 			ptr++;
 
-			if (*ptr == '%')
-			{
-				write(1, ptr, 1);
-				printed_chars++;
-			} else if (*ptr)
+			if (*ptr)
 			{
 				unsigned long int i;
 
@@ -55,7 +51,7 @@ int _printf(const char *format, ...)
 					}
 				}
 			}
-			if (!found_handler && *ptr != '%')
+			if (!found_handler)
 			{
 				write(1, "%", 1);
 				printed_chars++;
