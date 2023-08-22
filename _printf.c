@@ -20,7 +20,7 @@ int _printf(const char *format, ...)
 		 {'d', handle_di},
 		 {'i', handle_di},
 		 {'b', handle_binary},
-		 {'o', handle_octal}
+		 {'u', handle_ui}
 	};
 	if (ptr == NULL)
 		return (-1);
