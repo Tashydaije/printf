@@ -18,7 +18,8 @@ int _printf(const char *format, ...)
 		 {'s', handle_string},
 		 {'%', handle_percent,},
 		 {'d', handle_di},
-		 {'i', handle_di}
+		 {'i', handle_di},
+		 {'b', handle_binary}
 	};
 	if (ptr == NULL)
 		return (-1);
