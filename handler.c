@@ -52,3 +52,49 @@ unsigned int handle_percent()
 	write(1, &c, 1);
 	return (1);
 }
+
+/**
+ * handle_di - prints an integer/decimal
+ * @arg: list of arg pointing to int/decimal to print
+ *
+ * Return: len of digits
+ */
+
+unsigned int handle_di(va_list arg)
+{
+	int num = va_arg(arg, int);
+
+	int num_copy = num;
+	int temp;
+
+	unsigned int len = 0;
+
+	if (num_copy < 0)
+	{
+		write(1, "-", 1);
+		len++;
+		num_copy = -num_copy;
+	}
+
+	temp = num_copy;
+	int num_digits = 1;
+
+	while (temp >= 10)
+	{
+		temp /= 10;
+		num_digits++;
+	}
+
+	char digits[12];
+	int i;
+
+	for (i = num_digits - 1; i >= 0; i--)
+	{
+		digits[i] = num_copy % 10 + '0';
+		num_copy /= 10;
+	}
+	write(1, digits, num_digits);
+	len += num_digits;
+
+	return (len);
+}

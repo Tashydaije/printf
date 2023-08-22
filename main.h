@@ -22,6 +22,7 @@ int _printf(const char *format, ...);
 
 unsigned int handle_char(va_list arg);
 unsigned int handle_string(va_list arg);
-unsigned int handle_percent();
+unsigned int handle_percent(void);
+unsigned int handle_di(va_list arg);
 
 #endif

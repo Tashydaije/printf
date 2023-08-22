@@ -16,7 +16,9 @@ int _printf(const char *format, ...)
 	handler_t handlers[] = {
 		 {'c', handle_char},
 		 {'s', handle_string},
-		 {'%', handle_percent}
+		 {'%', handle_percent,},
+		 {'d', handle_di},
+		 {'i', handle_di}
 	};
 
 	va_start(args, format);
