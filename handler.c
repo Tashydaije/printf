@@ -106,3 +106,53 @@ unsigned int handle_di(va_list arg)
 	free(digits);
 	return (len);
 }
+
+/**
+ * handle_binary - prints an unsigned int in binary
+ * @arg: list of arg pionting to an unsigned int to print
+ *
+ * Return: number of chars printed
+ */
+
+unsigned int handle_binary(va_list arg)
+{
+	unsigned int num = va_arg(arg, unsigned int);
+	unsigned int temp = num;
+	int i;
+	char *binary;
+	unsigned int len;
+	int num_bits = 0;
+
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
+
+	while (temp > 0)
+	{
+		temp >>= 1;
+		num_bits++;
+	}
+
+	binary = (char *)malloc(num_bits + 1);
+
+	if (!binary)
+	{
+		write(1, "Memory allocation failed\n", 24);
+		return (1);
+	}
+
+	for (i = num_bits - 1; i >= 0; i--)
+	{
+		binary[i] = (num & 1) + '0';
+		num >>= 1;
+	}
+	binary[num_bits] = '\0';
+
+	write(1, binary, num_bits);
+	len = num_bits;
+
+	free(binary);
+	return (len);
+}
