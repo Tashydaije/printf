@@ -28,5 +28,6 @@ unsigned int handle_di(va_list arg);
 unsigned int handle_binary(va_list arg);
 unsigned int handle_ui(va_list arg);
 unsigned int handle_octal(va_list arg);
+unsigned int handle_hexadecimal(va_list arg, int uppercase);
 
 #endif

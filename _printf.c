@@ -21,7 +21,9 @@ int _printf(const char *format, ...)
 		 {'i', handle_di},
 		 {'b', handle_binary},
 		 {'u', handle_ui},
-		 {'o', handle_octal}
+		 {'o', handle_octal},
+		 {'x', handle_hexadecimal},
+		 {'X', handle_hexadecimal}
 	};
 	if (ptr == NULL)
 		return (-1);
