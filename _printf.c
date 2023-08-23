@@ -20,20 +20,8 @@ int _printf(const char *format, ...)
 		 {'d', handle_di},
 		 {'i', handle_di},
 		 {'b', handle_binary},
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		 {'u', handle_ui}
-=======
-		 {'o', handle_octal}
->>>>>>> ea8c28e3d351102e9f4e9720eda96fbec9ba2f5c
-=======
-		 {'u', handle_ui}
->>>>>>> 1af838adc2af8137aae3fb097660a2377e092081
-=======
 		 {'u', handle_ui},
 		 {'o', handle_octal}
->>>>>>> 02672f76c74262229856032dc77d9628740cd3ee
 	};
 	if (ptr == NULL)
 		return (-1);
