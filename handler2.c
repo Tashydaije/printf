@@ -86,3 +86,58 @@ unsigned int handle_octal(va_list arg)
 	free(octal);
 	return (len);
 }
+
+/**
+ * handle_hexadecimal - prints lower/uppercase hexadecimals
+ * @arg: list of args pointing the hexa to print
+ * @uppercase: det whether to print upper/lower case
+ *
+ * Return: length of hexa
+ */
+
+unsigned int handle_hexadecimal(va_list arg, int uppercase)
+{
+	unsigned int num = va_arg(arg, unsigned int);
+	int i;
+	char *hex;
+	unsigned int len;
+	int num_digits = 1;
+
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
+	while (num > 0)
+	{
+		num /= 16;
+		num_digits++;
+	}
+	hex = (char *)malloc(num_digits + 1);
+
+	if (!hex)
+	{
+		write(1, "Memory allocation failed\n", 24);
+		return (1);
+	}
+	for (i = num_digits - 1; i >= 0; i--)
+	{
+		int digit = va_arg(arg, int);
+
+		if (digit < 10)
+			hex[i] = digit + '0';
+		else
+		{
+			if (uppercase)
+				hex[i] = digit - 10 + 'A';
+			else
+				hex[i] = digit - 10 + 'a';
+		}
+		num >>= 4;
+	}
+	hex[num_digits] = '\0';
+	write(1, hex, num_digits);
+	len = num_digits;
+	free(hex);
+	return (len);
+}
