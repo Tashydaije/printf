@@ -95,13 +95,18 @@ unsigned int handle_octal(va_list arg)
  * Return: length of hexa
  */
 
-unsigned int handle_hexadecimal(va_list arg, int uppercase)
+unsigned int handle_hexadecimal(va_list arg)
 {
 	unsigned int num = va_arg(arg, unsigned int);
 	int i;
 	char *hex;
 	unsigned int len;
 	int num_digits = 1;
+	unsigned int uppercase = 0;
+	char specifier = va_arg(arg, int);
+
+	if (specifier == 'X')
+		uppercase = 1;
 
 	if (num == 0)
 	{
