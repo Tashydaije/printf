@@ -20,7 +20,11 @@ int _printf(const char *format, ...)
 		 {'d', handle_di},
 		 {'i', handle_di},
 		 {'b', handle_binary},
+<<<<<<< HEAD
 		 {'u', handle_ui}
+=======
+		 {'o', handle_octal}
+>>>>>>> ea8c28e3d351102e9f4e9720eda96fbec9ba2f5c
 	};
 	if (ptr == NULL)
 		return (-1);
