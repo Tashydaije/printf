@@ -22,6 +22,7 @@ int _printf(const char *format, ...)
 		 {'b', handle_binary},
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		 {'u', handle_ui}
 =======
 		 {'o', handle_octal}
@@ -29,6 +30,10 @@ int _printf(const char *format, ...)
 =======
 		 {'u', handle_ui}
 >>>>>>> 1af838adc2af8137aae3fb097660a2377e092081
+=======
+		 {'u', handle_ui},
+		 {'o', handle_octal}
+>>>>>>> 02672f76c74262229856032dc77d9628740cd3ee
 	};
 	if (ptr == NULL)
 		return (-1);

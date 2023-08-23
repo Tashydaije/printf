@@ -29,6 +29,7 @@ unsigned int handle_binary(va_list arg);
 <<<<<<< HEAD
 <<<<<<< HEAD
 unsigned int handle_ui(va_list arg);
+<<<<<<< HEAD
 
 =======
 unsigned int handle_octal(va_list arg);
@@ -36,4 +37,8 @@ unsigned int handle_octal(va_list arg);
 =======
 unsigned int handle_ui(va_list arg);
 >>>>>>> 1af838adc2af8137aae3fb097660a2377e092081
+=======
+unsigned int handle_octal(va_list arg);
+
+>>>>>>> 02672f76c74262229856032dc77d9628740cd3ee
 #endif

@@ -40,3 +40,49 @@ unsigned int handle_ui(va_list arg)
 	free(digits);
 	return (len);
 }
+
+/**
+ * handle_octal - prints integers in octal format
+ * @arg: list of args pointing to octal to print
+ *
+ * Return: length of octal
+ */
+
+unsigned int handle_octal(va_list arg)
+{
+	unsigned int num = va_arg(arg, unsigned int);
+	unsigned int temp = num;
+	int i;
+	char *octal;
+	unsigned int len;
+	int num_digits = 0;
+
+	if (num == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
+	while (temp > 0)
+	{
+		temp /= 8;
+		num_digits++;
+	}
+	octal = (char *)malloc(num_digits + 1);
+
+	if (!octal)
+	{
+		write(1, "Memory allocation failed\n", 24);
+		return (1);
+	}
+	for (i = num_digits - 1; i >= 0; i--)
+	{
+		octal[i] = (num & 7) + '0'; /*extract lowest 3bits*/
+		num >>= 3; /*shift right by 3 bits*/
+	}
+	octal[num_digits] = '\0';
+
+	write(1, octal, num_digits);
+	len = num_digits;
+	free(octal);
+	return (len);
+}
