@@ -101,6 +101,7 @@ unsigned int handle_hexadecimal(va_list arg)
 	int i;
 	char *hex;
 	unsigned int len;
+	unsigned int temp;
 	int num_digits = 1;
 	unsigned int uppercase = 0;
 	char specifier = va_arg(arg, int);
@@ -113,9 +114,10 @@ unsigned int handle_hexadecimal(va_list arg)
 		write(1, "0", 1);
 		return (1);
 	}
-	while (num > 0)
+	temp = num;
+	while (temp > 0)
 	{
-		num /= 16;
+		temp /= 16;
 		num_digits++;
 	}
 	hex = (char *)malloc(num_digits + 1);
@@ -127,7 +129,7 @@ unsigned int handle_hexadecimal(va_list arg)
 	}
 	for (i = num_digits - 1; i >= 0; i--)
 	{
-		int digit = va_arg(arg, int);
+		int digit = num & 0xF;
 
 		if (digit < 10)
 			hex[i] = digit + '0';
